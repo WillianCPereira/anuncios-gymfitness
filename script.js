@@ -45,17 +45,16 @@ const CONFIG = {
 
     painel:[
 
-        "lateral1.png",
-        "lateral2.png",
-        "lateral3.png",
-        "lateral4.png",
-        "lateral5.png",
-        "lateral6.png",
-        "lateral7.png",
-        "lateral8.png"
-        
+"lateral1.png",
+"lateral2.png",
+"lateral3.png",
+"lateral4.png",
+"lateral5.png",
+"lateral6.png",
+"lateral7.png",
+"lateral8.png"
 
-    ],
+],
 
 
 
