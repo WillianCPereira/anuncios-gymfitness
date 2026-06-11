@@ -24,7 +24,7 @@ const CONFIG = {
 
     anuncios:[
 
-        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio1.png",
+        "anuncio1.png",
         "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio2.jpeg",
         "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio3.png",
         "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio4.png",
