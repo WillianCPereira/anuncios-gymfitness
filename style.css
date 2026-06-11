@@ -1,0 +1,809 @@
+/* ==============================
+   GYM FITNESS EVERY DAY
+   TV INDOOR - STYLE
+   FULL HD 1920x1080
+================================*/
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+html,body{
+
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#050505;
+
+}
+
+
+/* CORES DO SISTEMA */
+
+:root{
+
+    --green-dark:#204e2f;
+    --green-main:#2d7c3f;
+    --green-soft:#5fc84b;
+    --green-light:#84ff4f;
+
+    --red:#ff4d4d;
+    --yellow:#ffd000;
+    --orange:#ff8c00;
+
+    --black:rgba(5,5,5,0.88);
+
+}
+
+
+
+/* ==============================
+   BASE DA TV
+================================*/
+
+
+.overlay{
+
+    position:fixed;
+
+    width:1920px;
+    height:1080px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%) scale(1);
+
+    transform-origin:center;
+
+    overflow:hidden;
+
+
+    background:
+
+    radial-gradient(
+    circle at top left,
+    rgba(132,255,79,.12),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle at bottom right,
+    rgba(45,124,63,.18),
+    transparent 34%
+    ),
+
+    #050505;
+
+}
+
+
+
+
+
+
+/* ==============================
+   TOPO
+================================*/
+
+
+.top-overlay{
+
+    position:absolute;
+
+    top:18px;
+    left:24px;
+    right:24px;
+
+    height:110px;
+
+    background:var(--black);
+
+    border:
+    2px solid rgba(132,255,79,.26);
+
+    border-radius:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 42px;
+
+}
+
+
+
+
+.logo-area{
+
+    width:520px;
+    height:90px;
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--green-dark),
+    var(--green-main),
+    var(--green-soft)
+    );
+
+
+    display:flex;
+    align-items:center;
+
+    gap:16px;
+
+    padding:8px 18px;
+
+    overflow:hidden;
+
+}
+
+
+
+.logo-area img{
+
+    height:86px;
+    object-fit:contain;
+
+}
+
+
+
+.logo-text strong{
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:900;
+
+}
+
+
+
+.logo-text span{
+
+    display:block;
+
+    margin-top:7px;
+
+    color:var(--green-light);
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+    font-weight:900;
+
+}
+
+
+
+
+.clock-date-wrapper{
+
+    height:62px;
+
+    padding:10px 26px;
+
+    display:flex;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    background:
+    rgba(132,255,79,.08);
+
+
+    border:
+    1px solid rgba(132,255,79,.25);
+
+}
+
+
+
+.date-box{
+
+    color:var(--green-light);
+
+    font-size:34px;
+
+    font-weight:900;
+
+}
+
+
+
+
+
+
+/* ==============================
+   CENTRO
+================================*/
+
+
+.center-container{
+
+    position:absolute;
+
+    top:148px;
+
+    left:64px;
+
+    right:64px;
+
+    bottom:98px;
+
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+
+
+
+
+
+
+/* ==============================
+   ANÚNCIOS
+================================*/
+
+
+.ad-area{
+
+    flex:1;
+
+    position:relative;
+
+    background:#000;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    border:
+    1px solid rgba(132,255,79,.18);
+
+}
+
+
+
+.ad-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    transition:
+    opacity 1.3s ease;
+
+}
+
+
+
+.ad-slide.active{
+
+    opacity:1;
+
+    z-index:2;
+
+}
+
+
+
+.ad-slide img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#000;
+
+}
+
+
+
+
+
+.slide-dots{
+
+    position:absolute;
+
+    bottom:18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:10px;
+
+    z-index:5;
+
+}
+
+
+
+.slide-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#777;
+
+}
+
+
+
+.slide-dot.active{
+
+    background:var(--green-light);
+
+}
+
+
+
+
+
+
+
+
+
+/* ==============================
+   PAINEL DIREITO
+================================*/
+
+
+.side-panel{
+
+    width:390px;
+
+    min-width:390px;
+
+    padding:18px;
+
+    display:grid;
+
+    grid-template-rows:1fr 1fr;
+
+    gap:18px;
+
+
+    background:var(--black);
+
+
+    border-radius:30px;
+
+    border:
+    2px solid rgba(95,200,75,.24);
+
+}
+
+
+
+
+
+.panel-box,
+.painel-slide-box{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+
+
+.panel-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+
+    padding:16px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    rgba(32,78,47,.55),
+    rgba(5,5,5,.72)
+    );
+
+
+    border:
+    1px solid rgba(132,255,79,.28);
+
+}
+
+
+
+
+.panel-box.critico{
+
+    border-color:var(--red);
+
+}
+
+
+.panel-box.alerta{
+
+    border-color:var(--yellow);
+
+}
+
+
+.panel-box.urgente{
+
+    border-color:var(--orange);
+
+}
+
+
+
+
+
+.status-line{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+
+
+
+.status-dot{
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--green-light);
+
+    animation:pulse 1.5s infinite;
+
+}
+
+
+
+.status-dot.closed{
+
+    background:var(--red);
+
+}
+
+
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.25);
+
+}
+
+}
+
+
+
+
+
+.panel-title{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    color:var(--green-light);
+
+}
+
+
+
+
+.func-dia{
+
+    margin-top:12px;
+
+    color:white;
+
+    font-size:26px;
+
+    font-weight:900;
+
+}
+
+
+
+
+.func-horario{
+
+    color:var(--green-soft);
+
+    font-size:28px;
+
+    font-weight:900;
+
+}
+
+
+
+.count-label{
+
+    margin-top:10px;
+
+    color:var(--green-light);
+
+    font-weight:900;
+
+}
+
+
+
+.countdown{
+
+    color:white;
+
+    font-size:48px;
+
+    font-weight:900;
+
+}
+
+
+
+.status-fechado{
+
+    color:var(--red);
+
+    font-size:44px;
+
+    font-weight:900;
+
+}
+
+
+
+
+
+.mini-labels{
+
+    display:flex;
+
+    gap:20px;
+
+    color:var(--green-light);
+
+    font-size:12px;
+
+    font-weight:900;
+
+}
+
+
+
+
+.gym-signature{
+
+    margin-top:15px;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:900;
+
+}
+
+
+.gym-signature span{
+
+    color:var(--green-light);
+
+}
+
+
+
+
+
+
+
+/* SLIDE LATERAL */
+
+
+.painel-slide-box{
+
+    position:relative;
+
+    background:#000;
+
+}
+
+
+
+.painel-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+
+
+.painel-slide.active{
+
+    opacity:1;
+
+}
+
+
+
+.painel-slide img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==============================
+   RODAPÉ AVISOS
+================================*/
+
+
+.bottom-overlay{
+
+    position:absolute;
+
+    bottom:18px;
+
+    left:24px;
+
+    right:24px;
+
+    height:66px;
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    padding:0 36px;
+
+
+    border-radius:22px;
+
+
+    background:var(--black);
+
+
+    overflow:hidden;
+
+}
+
+
+
+.ticker-label{
+
+    color:var(--green-light);
+
+    font-size:27px;
+
+    font-weight:900;
+
+    margin-right:30px;
+
+}
+
+
+
+.ticker-area{
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+}
+
+
+
+.ticker-text{
+
+    color:white;
+
+    font-size:27px;
+
+    font-weight:700;
+
+
+    display:inline-block;
+
+
+    padding-left:100%;
+
+
+    animation:ticker 45s linear infinite;
+
+}
+
+
+
+
+@keyframes ticker{
+
+
+from{
+
+transform:translateX(0);
+
+}
+
+
+to{
+
+transform:translateX(-100%);
+
+}
+
+
+}
