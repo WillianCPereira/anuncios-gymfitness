@@ -25,17 +25,17 @@ const CONFIG = {
     anuncios:[
 
         "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio1.png",
-        "anuncio2.jpeg",
-        "anuncio3.png",
-        "anuncio4.png",
-        "anuncio5.jpeg",
-        "anuncio6.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio2.jpeg",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio3.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio4.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio5.jpeg",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio6.png",
 
         // deixe preparado para novos clientes
 
-        "anuncio7.jpeg",
-        "anuncio8.jpeg",
-        "anuncio9.jpeg"
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio7.jpeg",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio8.jpeg",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/anuncio9.jpeg"
         
 
     ],
@@ -49,16 +49,15 @@ const CONFIG = {
 
     painel:[
 
-        "lateral1.png",
-        "lateral2.png",
-        "lateral3.png",
-        "lateral4.png",
-        "lateral5.png",
-        "lateral6.png",
-        "lateral7.png",
-        "lateral8.png",
-        "lateral9.png",
-        "lateral10.png"
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral1.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral2.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral3.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral4.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral5.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral6.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral7.png",
+        "https://github.com/WillianCPereira/anuncios-gymfitness/blob/main/lateral8.png"
+        
 
     ],
 
