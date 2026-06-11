@@ -6,19 +6,19 @@
 
 const CONFIG = {
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Tempo dos anúncios principais
     // 15000 = 15 segundos
     tempoAnuncio:15000,
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Tempo painel lateral
     tempoPainel:8000,
 
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Coloque aqui as imagens da pasta:
     // assets/anuncios/
 
@@ -43,7 +43,7 @@ const CONFIG = {
 
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Imagens da lateral:
     // assets/painel/
 
@@ -65,7 +65,7 @@ const CONFIG = {
 
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Avisos da barra inferior
 
     avisos:[
@@ -142,7 +142,7 @@ texto;
 function horarioAcademia(dia){
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Segunda a sexta
 
     if(dia >=1 && dia <=5){
@@ -161,7 +161,7 @@ function horarioAcademia(dia){
 
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Sábado
 
     if(dia ===6){
@@ -180,7 +180,7 @@ function horarioAcademia(dia){
 
 
 
-    // MONIQUE AQUI!
+    // MODIFIQUE AQUI!
     // Domingo e feriado
 
     return {
