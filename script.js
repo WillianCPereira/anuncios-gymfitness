@@ -24,7 +24,7 @@ const CONFIG = {
 
     anuncios:[
 
-        "anuncio1.png",
+        "assets/anuncios/anuncio1.png",
         "anuncio2.jpeg",
         "anuncio3.png",
         "anuncio4.png",
