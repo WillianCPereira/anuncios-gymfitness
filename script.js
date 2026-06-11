@@ -35,8 +35,7 @@ const CONFIG = {
 
         "anuncio7.jpeg",
         "anuncio8.jpeg",
-        "anuncio9.jpeg"
-        
+                
 
     ],
 
