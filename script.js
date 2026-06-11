@@ -22,22 +22,13 @@ const CONFIG = {
     // Coloque aqui as imagens da pasta:
     // assets/anuncios/
 
-    anuncios:[
-
-        "assets/anuncios/anuncio1.png",
-        "anuncio2.jpeg",
-        "anuncio3.png",
-        "anuncio4.png",
-        "anuncio5.jpeg",
-        "anuncio6.png",
-
-        // deixe preparado para novos clientes
-
-        "anuncio7.jpeg",
-        "anuncio8.jpeg",
-                
-
-    ],
+    criarSlides(
+"adArea",
+"ad-slide",
+"assets/anuncios/",
+CONFIG.anuncios,
+true
+);
 
 
 
