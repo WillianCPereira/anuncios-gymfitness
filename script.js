@@ -1,738 +1,328 @@
 /* ==============================
- GYM FITNESS EVERY DAY
- SISTEMA TV INDOOR
-==============================*/
-
+   GYM FITNESS EVERY DAY
+   SISTEMA TV INDOOR
+   IMAGENS + VÍDEOS
+================================*/
 
 const CONFIG = {
-
     // MODIFIQUE AQUI!
-    // Tempo dos anúncios principais
-    // 15000 = 15 segundos
+    // Tempo das imagens principais. Vídeos passam ao terminar.
     tempoAnuncio:15000,
 
-
     // MODIFIQUE AQUI!
-    // Tempo painel lateral
+    // Tempo das imagens do painel lateral.
     tempoPainel:8000,
 
-
+    // MODIFIQUE AQUI!
+    // Arquivos da pasta assets/anuncios/
+    // Aceita: png, jpg, jpeg, webp, mp4, webm, ogg.
+    // Para vídeos, use o formato mp4 para melhor compatibilidade.
+    
+    anuncios:[
+        "anuncio1.png",
+        "anuncio2.jpeg",
+        "anuncio3.png",
+        "anuncio4.png",
+        "anuncio5.jpeg",
+        "anuncio6.png",
+        "anuncio7.jpeg",
+        "anuncio8.jpeg",
+        "anuncio9.jpeg",
+        
+    ],
 
     // MODIFIQUE AQUI!
-    // Coloque aqui as imagens da pasta:
-    // assets/anuncios/
-
-  anuncios:[
-
-"anuncio1.png",
-"anuncio2.jpeg",
-"anuncio3.png",
-"anuncio4.png",
-"anuncio5.jpeg",
-"anuncio6.png",
-"anuncio7.jpeg",
-"anuncio8.jpeg",
-"anuncio9.jpeg"
-
-],
-
-
-
-
-    // MODIFIQUE AQUI!
-    // Imagens da lateral:
-    // assets/painel/
-
+    // Arquivos da pasta assets/painel/
     painel:[
-
-"lateral1.png",
-"lateral2.png",
-"lateral3.png",
-"lateral4.png",
-"lateral5.png",
-"lateral6.png",
-"lateral7.png",
-"lateral8.png"
-
-],
-
-
-
-
+        "lateral1.png",
+        "lateral2.png",
+        "lateral3.png",
+        "lateral4.png",
+        "lateral5.png",
+        "lateral6.png",
+        "lateral7.png",
+        "lateral8.png"
+    ],
 
     // MODIFIQUE AQUI!
-    // Avisos da barra inferior
-
+    // Avisos fixos da barra inferior.
     avisos:[
-
         "💧 Beba água durante seu treino",
-
         "🏋️ Precisou de ajuda? Chame um instrutor",
-
         "📲 Baixe nosso aplicativo",
-
         "🔥 Disciplina vence motivação",
-
         "❤️ Sua saúde é seu maior investimento",
-
         "📢 Anuncie aqui para mais de 3 mil pessoas por semana"
-
     ]
-
 };
 
-
-
-
-
-
 /* DATA */
-
 function atualizarData(){
+    const agora = new Date();
 
-const agora = new Date();
+    let texto = agora.toLocaleDateString("pt-BR",{
+        timeZone:"America/Sao_Paulo",
+        weekday:"long",
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+    });
 
-
-let texto = agora.toLocaleDateString(
-"pt-BR",
-{
-
-timeZone:"America/Sao_Paulo",
-
-weekday:"long",
-
-day:"2-digit",
-
-month:"2-digit",
-
-year:"numeric"
-
-});
-
-
-texto =
-texto.charAt(0).toUpperCase()
-+
-texto.slice(1);
-
-
-
-document.getElementById("date").innerText =
-texto;
-
+    texto = texto.charAt(0).toUpperCase() + texto.slice(1);
+    document.getElementById("date").innerText = texto;
 }
 
-
-
-
-
-
-
-
-/* ==============================
- HORÁRIO DA ACADEMIA
-==============================*/
-
-
+/* FUNCIONAMENTO */
 function horarioAcademia(dia){
-
-
-    // MODIFIQUE AQUI!
     // Segunda a sexta
-
-    if(dia >=1 && dia <=5){
-
-        return {
-
-        abre:5,
-
-        fecha:24,
-
-        texto:"05h às 00h"
-
-        };
-
+    if(dia >= 1 && dia <= 5){
+        return {abre:5, fecha:24, texto:"05h às 00h"};
     }
 
-
-
-    // MODIFIQUE AQUI!
     // Sábado
-
-    if(dia ===6){
-
-        return {
-
-        abre:7,
-
-        fecha:17,
-
-        texto:"07h às 17h"
-
-        };
-
+    if(dia === 6){
+        return {abre:7, fecha:17, texto:"07h às 17h"};
     }
 
-
-
-    // MODIFIQUE AQUI!
     // Domingo e feriado
-
-    return {
-
-    abre:8,
-
-    fecha:14,
-
-    texto:"08h às 14h"
-
-    };
-
-
+    return {abre:8, fecha:14, texto:"08h às 14h"};
 }
-
-
-
-
-
-
 
 function atualizarFuncionamento(){
+    const dias = [
+        "DOMINGO",
+        "SEGUNDA-FEIRA",
+        "TERÇA-FEIRA",
+        "QUARTA-FEIRA",
+        "QUINTA-FEIRA",
+        "SEXTA-FEIRA",
+        "SÁBADO"
+    ];
 
+    const agora = new Date();
+    const dia = agora.getDay();
+    const horario = horarioAcademia(dia);
 
-const dias=[
+    const abertura = new Date(agora);
+    abertura.setHours(horario.abre,0,0,0);
 
-"DOMINGO",
-"SEGUNDA-FEIRA",
-"TERÇA-FEIRA",
-"QUARTA-FEIRA",
-"QUINTA-FEIRA",
-"SEXTA-FEIRA",
-"SÁBADO"
+    const fechamento = new Date(agora);
 
-];
+    if(horario.fecha === 24){
+        fechamento.setDate(fechamento.getDate() + 1);
+        fechamento.setHours(0,0,0,0);
+    }else{
+        fechamento.setHours(horario.fecha,0,0,0);
+    }
 
+    const titulo = document.getElementById("funcTitulo");
+    const contador = document.getElementById("contadorFechamento");
+    const dot = document.getElementById("statusDot");
+    const miniLabels = document.getElementById("miniLabels");
 
+    document.getElementById("diaSemana").innerText = dias[dia];
+    document.getElementById("horarioHoje").innerText = horario.texto;
 
-const agora=new Date();
-
-const dia=agora.getDay();
-
-const h=horarioAcademia(dia);
-
-
-
-
-let abertura=new Date();
-
-abertura.setHours(
-h.abre,0,0,0
-);
-
-
-
-let fechamento=new Date();
-
-
-if(h.fecha===24){
-
-fechamento.setDate(
-fechamento.getDate()+1
-);
-
-fechamento.setHours(
-0,0,0,0
-);
-
-
-}else{
-
-
-fechamento.setHours(
-h.fecha,0,0,0
-);
-
-
+    if(agora >= abertura && agora < fechamento){
+        titulo.innerText = "ABERTO AGORA";
+        contador.className = "countdown";
+        contador.innerText = formatarTempo(fechamento - agora);
+        dot.classList.remove("closed");
+        miniLabels.style.display = "flex";
+    }else{
+        titulo.innerText = "FECHADO AGORA";
+        contador.className = "status-fechado";
+        contador.innerText = "FECHADO";
+        dot.classList.add("closed");
+        miniLabels.style.display = "none";
+    }
 }
 
+function formatarTempo(ms){
+    const total = Math.max(0,Math.floor(ms / 1000));
+    const horas = Math.floor(total / 3600);
+    const minutos = Math.floor((total % 3600) / 60);
+    const segundos = total % 60;
 
-
-
-
-const titulo =
-document.getElementById("funcTitulo");
-
-
-const contador =
-document.getElementById("contadorFechamento");
-
-
-const dot =
-document.getElementById("statusDot");
-
-
-document.getElementById("diaSemana").innerText =
-dias[dia];
-
-
-document.getElementById("horarioHoje").innerText =
-h.texto;
-
-
-
-
-if(
-agora >= abertura &&
-agora < fechamento
-){
-
-
-let falta =
-fechamento - agora;
-
-
-titulo.innerText =
-"ABERTO AGORA";
-
-
-contador.className =
-"countdown";
-
-
-contador.innerText =
-tempo(falta);
-
-
-dot.classList.remove("closed");
-
-
-
-}else{
-
-
-
-titulo.innerText =
-"FECHADO AGORA";
-
-
-contador.className =
-"status-fechado";
-
-
-contador.innerText =
-"FECHADO";
-
-
-dot.classList.add("closed");
-
-
-document.getElementById("miniLabels")
-.style.display="none";
-
-
+    return (
+        String(horas).padStart(2,"0") + ":" +
+        String(minutos).padStart(2,"0") + ":" +
+        String(segundos).padStart(2,"0")
+    );
 }
-
-
-}
-
-
-
-
-
-
-
-
-function tempo(ms){
-
-
-let total =
-Math.floor(ms/1000);
-
-
-let h =
-Math.floor(total/3600);
-
-
-let m =
-Math.floor(
-(total%3600)/60
-);
-
-
-let s =
-total%60;
-
-
-
-return (
-
-String(h).padStart(2,"0")
-+
-":"
-+
-String(m).padStart(2,"0")
-+
-":"
-+
-String(s).padStart(2,"0")
-
-);
-
-
-}
-
-
-
-
-
-
-
-
-
-
-/* ==============================
- SLIDES
-==============================*/
-
-
-function criarSlides(
-id,
-classe,
-pasta,
-lista,
-dots=false
-){
-
-
-
-const area =
-document.getElementById(id);
-
-
-
-const dotArea =
-document.getElementById(
-"slideDots"
-);
-
-
-
-lista.forEach(
-(arquivo,i)=>{
-
-
-
-let slide =
-document.createElement("div");
-
-
-slide.className =
-classe;
-
-
-
-if(i===0)
-slide.classList.add("active");
-
-
-
-
-slide.innerHTML =
-`
-<img src="${pasta}${arquivo}">
-`;
-
-
-
-area.appendChild(slide);
-
-
-
-
-if(dots){
-
-
-let d =
-document.createElement("div");
-
-
-d.className="slide-dot";
-
-
-if(i===0)
-d.classList.add("active");
-
-
-
-dotArea.appendChild(d);
-
-
-}
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-
-function rodarSlides(
-seletor,
-dotSeletor,
-tempo
-){
-
-
-const slides =
-document.querySelectorAll(seletor);
-
-
-const dots =
-dotSeletor ?
-document.querySelectorAll(dotSeletor)
-:
-null;
-
-
-
-let atual=0;
-
-
-
-setInterval(()=>{
-
-
-slides[atual]
-.classList.remove("active");
-
-
-
-if(dots)
-dots[atual]
-.classList.remove("active");
-
-
-
-
-atual =
-(atual+1)
-%
-slides.length;
-
-
-
-
-slides[atual]
-.classList.add("active");
-
-
-
-if(dots)
-dots[atual]
-.classList.add("active");
-
-
-
-},tempo);
-
-
-
-}
-
-
-
-
-
-
-
-
-
 
 /* AVISOS */
-
-
 function carregarAvisos(){
+    const hora = new Date().getHours();
+    let frase;
 
+    if(hora >= 5 && hora < 12){
+        frase = "☀️ Bom dia! Vamos começar o dia com energia";
+    }else if(hora >= 12 && hora < 18){
+        frase = "💪 Continue firme no seu objetivo";
+    }else{
+        frase = "🌙 Ainda dá tempo de cuidar de você hoje";
+    }
 
-let hora =
-new Date().getHours();
-
-
-
-let frase;
-
-
-if(hora <12){
-
-frase =
-"☀️ Bom dia! Vamos começar o dia com energia";
-
+    document.getElementById("tickerLabel").innerText = "GYM INFORMA!";
+    document.getElementById("tickerText").innerText = [
+        frase,
+        ...CONFIG.avisos
+    ].join(" • ");
 }
 
-else if(hora <18){
-
-frase =
-"💪 Continue firme no seu objetivo";
-
+/* SLIDES: IMAGEM + VÍDEO */
+function ehVideo(arquivo){
+    const extensao = arquivo.split(".").pop().toLowerCase();
+    return ["mp4","webm","ogg"].includes(extensao);
 }
 
-else{
+function tipoVideo(arquivo){
+    const extensao = arquivo.split(".").pop().toLowerCase();
 
-frase =
-"🌙 Ainda dá tempo de cuidar de você hoje";
-
+    if(extensao === "webm") return "video/webm";
+    if(extensao === "ogg") return "video/ogg";
+    return "video/mp4";
 }
 
+function criarSlides(containerId,classe,pasta,lista,usarDots=false){
+    const container = document.getElementById(containerId);
+    const dotsBox = usarDots ? document.getElementById("slideDots") : null;
 
+    lista.forEach((arquivo,index)=>{
+        const slide = document.createElement("div");
+        slide.className = classe;
 
-document.getElementById("tickerText")
-.innerText =
+        if(index === 0){
+            slide.classList.add("active");
+        }
 
-[
-frase,
-...CONFIG.avisos
+        if(ehVideo(arquivo)){
+            slide.innerHTML = `
+                <video muted playsinline preload="auto">
+                    <source src="${pasta}${arquivo}" type="${tipoVideo(arquivo)}">
+                </video>
+            `;
+        }else{
+            slide.innerHTML = `<img src="${pasta}${arquivo}" alt="Slide ${index + 1}">`;
+        }
 
-].join(" • ");
+        if(usarDots){
+            container.insertBefore(slide,dotsBox);
 
+            const dot = document.createElement("div");
+            dot.className = "slide-dot";
 
+            if(index === 0){
+                dot.classList.add("active");
+            }
+
+            dotsBox.appendChild(dot);
+        }else{
+            container.appendChild(slide);
+        }
+    });
 }
 
+function iniciarRotacao(seletor,seletorDots,tempoImagem){
+    const slides = document.querySelectorAll(seletor);
+    const dots = seletorDots ? document.querySelectorAll(seletorDots) : null;
 
+    let index = 0;
+    let timer = null;
 
+    if(slides.length <= 1){
+        tocarVideoAtivo(slides[0]);
+        return;
+    }
 
+    function pararVideos(){
+        slides.forEach(slide=>{
+            const video = slide.querySelector("video");
+            if(video){
+                video.pause();
+                video.currentTime = 0;
+                video.onended = null;
+            }
+        });
+    }
 
+    function mostrarSlide(novoIndex){
+        clearTimeout(timer);
 
+        slides[index].classList.remove("active");
+        if(dots) dots[index].classList.remove("active");
 
+        pararVideos();
 
+        index = novoIndex;
 
-/* AJUSTAR TV */
+        slides[index].classList.add("active");
+        if(dots) dots[index].classList.add("active");
 
+        const video = slides[index].querySelector("video");
+
+        if(video){
+            video.currentTime = 0;
+            video.play().catch(()=>{
+                timer = setTimeout(proximoSlide,tempoImagem);
+            });
+            video.onended = proximoSlide;
+        }else{
+            timer = setTimeout(proximoSlide,tempoImagem);
+        }
+    }
+
+    function proximoSlide(){
+        mostrarSlide((index + 1) % slides.length);
+    }
+
+    mostrarSlide(0);
+}
+
+function tocarVideoAtivo(slide){
+    if(!slide) return;
+
+    const video = slide.querySelector("video");
+
+    if(video){
+        video.currentTime = 0;
+        video.play().catch(()=>{});
+    }
+}
+
+/* AJUSTE DE TELA */
 function ajustarTela(){
+    const escala = Math.min(
+        window.innerWidth / 1920,
+        window.innerHeight / 1080
+    );
 
-
-let escala =
-Math.min(
-
-window.innerWidth/1920,
-
-window.innerHeight/1080
-
-);
-
-
-
-document.querySelector(".overlay")
-.style.transform =
-
-`translate(-50%,-50%) scale(${escala})`;
-
-
+    document.querySelector(".overlay").style.transform =
+        `translate(-50%,-50%) scale(${escala})`;
 }
 
-
-
-
-
-
-
-
-
-/* INICIAR SISTEMA */
-
-
+/* INICIAR */
 atualizarData();
-
 atualizarFuncionamento();
-
 carregarAvisos();
 
+criarSlides("adArea","ad-slide","assets/anuncios/",CONFIG.anuncios,true);
+criarSlides("painelArea","painel-slide","assets/painel/",CONFIG.painel,false);
 
-
-criarSlides(
-"adArea",
-"ad-slide",
-"assets/anuncios/",
-CONFIG.anuncios,
-true
-);
-
-
-
-criarSlides(
-"painelArea",
-"painel-slide",
-"assets/painel/",
-CONFIG.painel
-);
-
-
-
-
-rodarSlides(
-".ad-slide",
-".slide-dot",
-CONFIG.tempoAnuncio
-);
-
-
-
-rodarSlides(
-".painel-slide",
-null,
-CONFIG.tempoPainel
-);
-
-
-
+iniciarRotacao(".ad-slide",".slide-dot",CONFIG.tempoAnuncio);
+iniciarRotacao(".painel-slide",null,CONFIG.tempoPainel);
 
 ajustarTela();
 
+setInterval(atualizarData,1000);
+setInterval(atualizarFuncionamento,1000);
+setInterval(carregarAvisos,60000);
 
+window.addEventListener("resize",ajustarTela);
 
-
-
-setInterval(
-atualizarData,
-1000
-);
-
-
-setInterval(
-atualizarFuncionamento,
-1000
-);
-
-
-setInterval(
-carregarAvisos,
-60000
-);
-
-
-
-window.addEventListener(
-"resize",
-ajustarTela
-);
-
-
-
-document.addEventListener(
-"click",
-()=>{
-
-document.documentElement
-.requestFullscreen();
-
-},
-{once:true}
-
-);
+document.addEventListener("click",()=>{
+    if(document.documentElement.requestFullscreen){
+        document.documentElement.requestFullscreen();
+    }
+},{once:true});
