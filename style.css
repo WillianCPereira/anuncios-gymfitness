@@ -420,41 +420,40 @@ html,body{
     to{transform:translateX(-100%)}
 }
 
+/* ==================================
+   TEMPORÁRIO NO ESPAÇO DO CRONÔMETRO
+   ANIVERSÁRIO / AVISOS
+================================== */
+
+.side-panel{
+    grid-template-rows:1fr 1fr;
+}
+
+.panel-box{
+    grid-row:1;
+    grid-column:1;
+}
+
 .temporario-box{
+    grid-row:1;
+    grid-column:1;
+
     width:100%;
     height:100%;
+
     border-radius:20px;
     overflow:hidden;
+
     display:none;
     align-items:center;
     justify-content:center;
+
     background:#000;
     border:1px solid rgba(132,255,79,.25);
 }
 
-/* IMAGEM TEMPORÁRIA
-   ANIVERSÁRIO / AVISOS */
-
-.temporario-box{
-    width:100%;
-    height:100%;
-    border-radius:20px;
-    overflow:hidden;
-
-    display:none;
-    align-items:center;
-    justify-content:center;
-
-    background:#000;
-
-    border:1px solid rgba(132,255,79,.25);
-}
-
-
-/* CENTRALIZA IMAGEM E VÍDEO DO ANÚNCIO TEMPORÁRIO */
 .temporario-box img,
 .temporario-box video{
-
     width:100%;
     height:100%;
 
@@ -462,6 +461,10 @@ html,body{
     object-position:center center;
 
     display:block;
-
     background:#000;
+}
+
+.painel-slide-box{
+    grid-row:2;
+    grid-column:1;
 }
