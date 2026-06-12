@@ -1,23 +1,15 @@
 /* ==============================
    GYM FITNESS EVERY DAY
    SISTEMA TV INDOOR
-   IMAGENS + VÍDEOS
+   IMAGENS + VÍDEOS + TEMPORÁRIOS
+   WILLIAN C PEREIRA - 2026
 ================================*/
 
 const CONFIG = {
-    // MODIFIQUE AQUI!
-    // Tempo das imagens principais. Vídeos passam ao terminar.
     tempoAnuncio:15000,
-
-    // MODIFIQUE AQUI!
-    // Tempo das imagens do painel lateral.
     tempoPainel:8000,
 
-    // MODIFIQUE AQUI!
-    // Arquivos da pasta assets/anuncios/
-    // Aceita: png, jpg, jpeg, webp, mp4, webm, ogg.
-    // Para vídeos, use o formato mp4 para melhor compatibilidade.
-    
+    // MODIFIQUE AQUI! ANÚNCIOS CENTRO (pode ser só imagens ou vídeos também)
     anuncios:[
         "anuncio1.png",
         "anuncio2.jpeg",
@@ -27,12 +19,10 @@ const CONFIG = {
         "anuncio6.png",
         "anuncio7.jpeg",
         "anuncio8.jpeg",
-        "anuncio9.jpeg",
-        
+        "anuncio9.jpeg"
     ],
 
-    // MODIFIQUE AQUI!
-    // Arquivos da pasta assets/painel/
+    // MODIFIQUE AQUI! PAINEL LATERAL (pode ser só imagens ou vídeos também)
     painel:[
         "lateral1.png",
         "lateral2.png",
@@ -44,8 +34,15 @@ const CONFIG = {
         "lateral8.png"
     ],
 
-    // MODIFIQUE AQUI!
-    // Avisos fixos da barra inferior.
+    // MODIFIQUE AQUI! ANIVERSARIANTE DO DIA (OU PROMOÇÃO TEMPORÁRIA)
+    temporario:{
+        ativo:true,
+        arquivo:"aniversariante1anisley.jpeg",
+        inicio:"2026-06-12T08:00:00",
+        duracaoHoras:24,
+        tempoNaTela:12000
+    },
+
     avisos:[
         "💧 Beba água durante seu treino",
         "🏋️ Precisou de ajuda? Chame um instrutor",
@@ -56,7 +53,6 @@ const CONFIG = {
     ]
 };
 
-/* DATA */
 function atualizarData(){
     const agora = new Date();
 
@@ -72,19 +68,15 @@ function atualizarData(){
     document.getElementById("date").innerText = texto;
 }
 
-/* FUNCIONAMENTO */
 function horarioAcademia(dia){
-    // Segunda a sexta
     if(dia >= 1 && dia <= 5){
         return {abre:5, fecha:24, texto:"05h às 00h"};
     }
 
-    // Sábado
     if(dia === 6){
         return {abre:7, fecha:17, texto:"07h às 17h"};
     }
 
-    // Domingo e feriado
     return {abre:8, fecha:14, texto:"08h às 14h"};
 }
 
@@ -151,7 +143,6 @@ function formatarTempo(ms){
     );
 }
 
-/* AVISOS */
 function carregarAvisos(){
     const hora = new Date().getHours();
     let frase;
@@ -171,7 +162,6 @@ function carregarAvisos(){
     ].join(" • ");
 }
 
-/* SLIDES: IMAGEM + VÍDEO */
 function ehVideo(arquivo){
     const extensao = arquivo.split(".").pop().toLowerCase();
     return ["mp4","webm","ogg"].includes(extensao);
@@ -183,6 +173,18 @@ function tipoVideo(arquivo){
     if(extensao === "webm") return "video/webm";
     if(extensao === "ogg") return "video/ogg";
     return "video/mp4";
+}
+
+function criarMidia(arquivo,pasta){
+    if(ehVideo(arquivo)){
+        return `
+            <video muted playsinline preload="auto">
+                <source src="${pasta}${arquivo}" type="${tipoVideo(arquivo)}">
+            </video>
+        `;
+    }
+
+    return `<img src="${pasta}${arquivo}" alt="Mídia">`;
 }
 
 function criarSlides(containerId,classe,pasta,lista,usarDots=false){
@@ -197,15 +199,7 @@ function criarSlides(containerId,classe,pasta,lista,usarDots=false){
             slide.classList.add("active");
         }
 
-        if(ehVideo(arquivo)){
-            slide.innerHTML = `
-                <video muted playsinline preload="auto">
-                    <source src="${pasta}${arquivo}" type="${tipoVideo(arquivo)}">
-                </video>
-            `;
-        }else{
-            slide.innerHTML = `<img src="${pasta}${arquivo}" alt="Slide ${index + 1}">`;
-        }
+        slide.innerHTML = criarMidia(arquivo,pasta);
 
         if(usarDots){
             container.insertBefore(slide,dotsBox);
@@ -291,7 +285,71 @@ function tocarVideoAtivo(slide){
     }
 }
 
-/* AJUSTE DE TELA */
+/* TEMPORÁRIO NO BOX DE FUNCIONAMENTO */
+function temporarioValido(){
+    const t = CONFIG.temporario;
+
+    if(!t || !t.ativo || !t.arquivo || !t.inicio){
+        return false;
+    }
+
+    const agora = new Date();
+    const inicio = new Date(t.inicio);
+    const fim = new Date(inicio.getTime() + (t.duracaoHoras * 60 * 60 * 1000));
+
+    return agora >= inicio && agora <= fim;
+}
+
+function criarTemporarioNoPainel(){
+    const panelBox = document.getElementById("panelBox");
+
+    const temporarioBox = document.createElement("div");
+    temporarioBox.id = "temporarioBox";
+    temporarioBox.className = "temporario-box";
+    temporarioBox.innerHTML = criarMidia(CONFIG.temporario.arquivo,"assets/temporarios/");
+
+    panelBox.parentNode.insertBefore(temporarioBox,panelBox.nextSibling);
+}
+
+function alternarFuncionamentoTemporario(){
+    const panelBox = document.getElementById("panelBox");
+    const temporarioBox = document.getElementById("temporarioBox");
+
+    if(!temporarioBox) return;
+
+    let mostrandoTemporario = false;
+
+    setInterval(()=>{
+        if(!temporarioValido()){
+            panelBox.style.display = "flex";
+            temporarioBox.style.display = "none";
+            return;
+        }
+
+        mostrandoTemporario = !mostrandoTemporario;
+
+        if(mostrandoTemporario){
+            panelBox.style.display = "none";
+            temporarioBox.style.display = "flex";
+
+            const video = temporarioBox.querySelector("video");
+            if(video){
+                video.currentTime = 0;
+                video.play().catch(()=>{});
+            }
+        }else{
+            temporarioBox.style.display = "none";
+            panelBox.style.display = "flex";
+
+            const video = temporarioBox.querySelector("video");
+            if(video){
+                video.pause();
+                video.currentTime = 0;
+            }
+        }
+    },CONFIG.temporario.tempoNaTela || 12000);
+}
+
 function ajustarTela(){
     const escala = Math.min(
         window.innerWidth / 1920,
@@ -309,6 +367,11 @@ carregarAvisos();
 
 criarSlides("adArea","ad-slide","assets/anuncios/",CONFIG.anuncios,true);
 criarSlides("painelArea","painel-slide","assets/painel/",CONFIG.painel,false);
+
+if(temporarioValido()){
+    criarTemporarioNoPainel();
+    alternarFuncionamentoTemporario();
+}
 
 iniciarRotacao(".ad-slide",".slide-dot",CONFIG.tempoAnuncio);
 iniciarRotacao(".painel-slide",null,CONFIG.tempoPainel);
