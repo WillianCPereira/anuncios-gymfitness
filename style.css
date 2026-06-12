@@ -285,10 +285,11 @@ html,body{
 .panel-title.orange{color:var(--orange)}
 
 .info-label{
-    color:#cfcfcf;
-    font-size:15px;
+    color:#ffffff;
+    font-size:16px;
     font-weight:900;
     margin-bottom:5px;
+    text-shadow:0 0 8px rgba(132,255,79,.45);
 }
 
 .func-dia{
@@ -396,6 +397,7 @@ html,body{
     display:flex;
     align-items:center;
     justify-content:center;
+    flex-shrink:0;
 }
 
 .ticker-area{
