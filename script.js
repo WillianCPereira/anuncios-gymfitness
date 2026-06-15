@@ -37,7 +37,7 @@ const CONFIG = {
     // MODIFIQUE AQUI! ANIVERSARIANTE DO DIA (OU PROMOÇÃO TEMPORÁRIA)
     temporario:{
         ativo:true,
-        arquivo:"aniversariante1gabriel.jpeg",
+        arquivo:"aniversariante1.jpeg",
         inicio:"2026-06-15T08:00:00",
         duracaoHoras:24,
         tempoNaTela:12000
