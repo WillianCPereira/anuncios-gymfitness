@@ -12,7 +12,6 @@ const CONFIG = {
     // MODIFIQUE AQUI! ANÚNCIOS CENTRO (pode ser só imagens ou vídeos também)
     anuncios:[
         "anuncio1.png",
-        "anuncio2.jpeg",
         "anuncio3.png",
         "anuncio4.png",
         "anuncio5.jpeg",
