@@ -17,7 +17,13 @@ const CONFIG = {
         "anuncio9.jpeg",
         "anuncio10.jpeg",
         "anuncio11.jpeg",
+        "anuncio12.jpeg",
+        "anuncio13.jpeg",
+        "anuncio14.jpeg",
+        "anuncio15.jpeg",
+        "anuncio16.jpeg"
     ],
+
 
     // MODIFIQUE AQUI! Painel lateral: imagens ou vídeos
     painel:[
