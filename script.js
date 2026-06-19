@@ -90,7 +90,7 @@ function atualizarData(){
 }
 
 function horarioAcademia(dia){
-    if(dia >= 1 && dia <= 5) return {abre:5, fecha:24, texto:"05h às 21h"};
+    if(dia >= 1 && dia <= 5) return {abre:5, fecha:24, texto:"05h às 00h"};
     if(dia === 6) return {abre:7, fecha:17, texto:"07h às 17h"};
     return {abre:8, fecha:14, texto:"08h às 14h"};
 }
