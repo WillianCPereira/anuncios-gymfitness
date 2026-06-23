@@ -57,7 +57,8 @@ const CONFIG = {
         "lateral28.jpeg",
         "lateral29.jpeg",
         "lateral30.jpeg",
-        "lateral31.jpeg"
+        "lateral31.jpeg",
+        "lateral32.jpeg"
     ],
 
     // MODIFIQUE AQUI! Temporário: aniversário, promoção ou aviso por tempo limitado
