@@ -101,7 +101,7 @@ const CONFIG = {
         "mochilasaco.jpeg",
         "tapabumbum.jpeg",
         "thermocaps.jpeg",
-        "toalhinhasparatreinos.jpeg"
+        "toalhinhasparatreino.jpeg"
         
     ],
 
