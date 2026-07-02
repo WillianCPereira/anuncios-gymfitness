@@ -91,6 +91,7 @@ const CONFIG = {
         "pretreinoespartano5990.jpeg",
         "relogiodigitalsmart1990.jpeg",
         "secadetox3999.jpeg",
+        "luvaacademia.jpeg",
         "smartbracelet3990.jpeg",
         "strap2990.jpeg",
         "suportemagnetico3990.jpeg",
