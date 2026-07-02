@@ -90,7 +90,7 @@ const CONFIG = {
         "secadetox3999.jpeg",
         "smartbracelet3990.jpeg",
         "strap2990.jpeg",
-        "suportemagenetico3990.jpeg",
+        "suportemagnetico3990.jpeg",
         "whaynovossabores20990.jpeg",
         "whaynatural19990.jpeg",
         "xuxinha4990.jpeg",
