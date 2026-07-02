@@ -84,6 +84,7 @@ const CONFIG = {
         "joelheiratermica5990.jpeg",
         "luvapalmar3490.jpeg",
         "pacoca.jpeg",
+        "sibutramil.jpeg",
         "luvastreinos2490.jpeg",
         "meiaspilates1999.jpeg",
         "munhequeiradepunho4990.jpeg",
