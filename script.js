@@ -116,7 +116,14 @@ const CONFIG = {
         "tapabumbum.jpeg",
         "thermocaps.jpeg",
         "trident.jpeg",
-        "toalhinhasparatreino.jpeg"
+        "toalhinhasparatreino.jpeg",
+        "balysemacucar.jpeg",
+        "calcadetreinar.jpeg",
+        "chocowheyfer.jpeg",
+        "meiascanomedio.jpeg",
+        "meiaspilates.jpeg",
+        "meisacanomedio.jpeg",
+        "proteinbar.jpeg"
         
     ],
 
