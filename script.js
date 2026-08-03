@@ -29,11 +29,7 @@ const CONFIG = {
         "sensewhaeybar.jpeg",
         "proteincrisp.jpeg",
         "naogotodefazerexercicios.jpeg",
-        "liquidacao.jpeg",
-        "kitsecabarriga.jpeg",
-        "horariosfuncionamentos.jpeg",
-        "camiseta12990.jpeg",
-        "barracrisp.jpeg"
+        "liquidacao.jpeg"
         
     ],
 
