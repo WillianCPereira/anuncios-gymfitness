@@ -22,7 +22,8 @@ const CONFIG = {
         "robsonejoao.jpeg",
         "saidoaluguel.jpeg",
         "garrafasshaker2490.jpeg",
-        "camisapalmeiras.jpeg"
+        "camisapalmeiras.jpeg",
+        "topcar.jpeg"
         
     ],
 
