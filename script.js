@@ -30,7 +30,6 @@ const CONFIG = {
         "proteincrisp.jpeg",
         "naogotodefazerexercicios.jpeg",
         "liquidacao.jpeg"
-        
     ],
 
 
