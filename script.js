@@ -31,6 +31,7 @@ const CONFIG = {
         "naogotodefazerexercicios.jpeg",
         "liquidacao.jpeg",
         "kitsecabarriga.jpeg"
+        "horariosfuncionamentos.jpeg"
         
     ],
 
