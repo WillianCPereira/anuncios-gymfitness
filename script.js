@@ -8,7 +8,6 @@ const CONFIG = {
     anuncios:[
         "garafastermicagym6495.jpeg",
         "14anosrealizandosonhos.jpeg",
-        "aulapassinhos.jpeg",
         "aluguelrc.jpeg",
         "anuncieaqui.png",
         "apptreinoandroid.png",
@@ -43,6 +42,8 @@ const CONFIG = {
     painel:[
         "lateral1.png",
         "lateral2.png",
+        "meiascanomediodiversosanimes.jpeg",
+        "aulapassinhos.jpeg",
         "lateral3.png",
         "lateral4.png",
         "lateral5.png",
