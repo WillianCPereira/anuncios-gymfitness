@@ -7,6 +7,7 @@ const CONFIG = {
     // MODIFIQUE AQUI! Anúncios centrais: imagens ou vídeos
     anuncios:[
         "garafastermicagym6495.jpeg",
+        "meiascanomediodiversosanimes.jpeg",
         "camisasraiders.jpeg",
         "novidadesnomostruario.jpeg",
         "14anosrealizandosonhos.jpeg",
@@ -51,7 +52,6 @@ const CONFIG = {
         "lateral1.png",
         "lateral2.png",
         "creatina8490.jpeg",
-        "meiascanomediodiversosanimes.jpeg",
         "aulapassinhos.jpeg",
         "lateral3.png",
         "lateral4.png",
