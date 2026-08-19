@@ -11,6 +11,7 @@ const CONFIG = {
         "novidadesnomostruario.jpeg",
         "14anosrealizandosonhos.jpeg",
         "aluguelrc.jpeg",
+        "horariocoletivas.jpeg",
         "anuncieaqui.png",
         "apptreinoandroid.png",
         "apptreinoios.png",
