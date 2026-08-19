@@ -50,6 +50,7 @@ const CONFIG = {
     painel:[
         "lateral1.png",
         "lateral2.png",
+        "creatina8490.jpeg",
         "meiascanomediodiversosanimes.jpeg",
         "aulapassinhos.jpeg",
         "lateral3.png",
