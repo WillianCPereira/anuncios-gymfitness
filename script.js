@@ -16,7 +16,6 @@ const CONFIG = {
         "apptreinoios.png",
         "cadafamiliatemumahistoria.jpeg",
         "camisetacorintias.jpeg",
-        "horarios.jpeg",
         "planos.jpeg",
         "rccaranova.jpeg",
         "rcimoveis.jpeg",
