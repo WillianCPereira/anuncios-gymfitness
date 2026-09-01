@@ -145,8 +145,8 @@ const CONFIG = {
     // MODIFIQUE AQUI! Temporário: aniversário, promoção ou aviso por tempo limitado
     temporario:{
         ativo:true,
-        arquivo:"aniversariante1.jpeg",
-        inicio:"2026-06-25T08:00:00",
+        arquivo:"profissional.jpeg",
+        inicio:"2026-08-01T13:00:00",
         duracaoHoras:24,
         tempoNaTela:12000
     },
