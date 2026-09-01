@@ -162,7 +162,7 @@ const CONFIG = {
     temporario:{
         ativo:true,
         arquivo:"profissional.jpeg",
-        inicio:"2026-08-01T14:00:00",
+        inicio:"2026-09-01T14:00:00",
         duracaoHoras:24,
         tempoNaTela:12000
     },
