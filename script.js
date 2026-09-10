@@ -50,7 +50,6 @@ const CONFIG = {
         "protein12990.jpeg",
         "protein12990.jpeg",
         "aluguelrc.jpeg",
-        "horariocoletivas.jpeg",
         "anuncieaqui.png",
         "apptreinoandroid.png",
         "apptreinoios.png",
