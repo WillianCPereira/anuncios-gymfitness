@@ -10,6 +10,8 @@ const CONFIG = {
         "meiascanomediodiversosanimes.jpeg",
         "camisasraiders.jpeg",
         "bandodeloucosrosa.jpeg",
+        "horariocoletivas.jpeg",
+        "wheynutry14990.jpeg",
         "bermudasbaquete.jpeg",
         "bermudasbordadas.jpeg",
         "novidadesnomostruario.jpeg",
