@@ -90,7 +90,6 @@ const CONFIG = {
         "aulapassinhos.jpeg",
         "lateral3.png",
         "lateral4.png",
-        "lateral5.png",
         "lateral6.png",
         "lateral7.png",
         "lateral8.png",
