@@ -88,7 +88,6 @@ const CONFIG = {
         "lateral2.png",
         "creatina8490.jpeg",
         "aulapassinhos.jpeg",
-        "lateral3.png",
         "lateral4.png",
         "lateral6.png",
         "lateral7.png",
