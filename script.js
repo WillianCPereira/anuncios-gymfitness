@@ -89,7 +89,6 @@ const CONFIG = {
 
     // MODIFIQUE AQUI! Painel lateral: imagens ou vídeos
     painel:[
-        "lateral1.png",
         "lateral2.png",
         "creatina8490.jpeg",
         "aulapassinhos.jpeg",
