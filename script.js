@@ -111,7 +111,6 @@ const CONFIG = {
         "lateral27.jpeg",
         "lateral28.jpeg",
         "lateral29.jpeg",
-        "lateral30.jpeg",
         "lateral31.jpeg",
         "lateral32.jpeg",
         "lateral33.jpeg",
