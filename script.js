@@ -200,7 +200,7 @@ const CONFIG = {
     avisos:[
         "💧 Beba água durante seu treino",
         "🏋️ Precisou de ajuda? Chame um instrutor",
-        "📲 Baixe nosso aplicativo",
+        "📲 Baixe nosso aplicativo de treino e tenha seu treino na palma de sua mão",
         "🔥 Disciplina vence motivação",
         "❤️ Sua saúde é seu maior investimento",
         "📢 Anuncie aqui para mais de 3 mil pessoas por semana"
