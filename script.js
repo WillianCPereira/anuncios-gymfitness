@@ -5,13 +5,13 @@ const CONFIG = {
     tempoPainel:8000,
 
     // MODIFIQUE AQUI! Anúncios centrais: imagens ou vídeos
-    anuncios:[
+    anuncios:[     
+        "cordaogym.jpeg",
         "garafastermicagym6495.jpeg",
         "meiascanomediodiversosanimes.jpeg",
         "calcas3bolsos.jpeg",
         "camisabeisebolcinza.jpeg",
         "camunicadoatestado.jpeg",
-        "cordaogym.jpeg",
         "camisasraiders.jpeg",
         "bandodeloucosrosa.jpeg",
         "anaadvogada.jpeg",
