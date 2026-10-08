@@ -11,6 +11,7 @@ const CONFIG = {
         "calcas3bolsos.jpeg",
         "camisabeisebolcinza.jpeg",
         "camunicadoatestado.jpeg",
+        "cordaogym.jpeg",
         "camisasraiders.jpeg",
         "bandodeloucosrosa.jpeg",
         "anaadvogada.jpeg",
