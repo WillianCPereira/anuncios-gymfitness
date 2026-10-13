@@ -3,14 +3,58 @@
 html,body{width:100%;height:100%;overflow:hidden;background:#050505}
 
 :root{
-    --green-dark:#204e2f;
-    --green-main:#2d7c3f;
-    --green-soft:#5fc84b;
-    --green-light:#84ff4f;
-    --red:#ff4d4d;
-    --yellow:#ffd000;
-    --orange:#ff8c00;
+    /* Paleta padrão: verde da academia, suavizado para uso em TV. */
+    --tema-dark:#193c29;
+    --tema-main:#2e6543;
+    --tema-soft:#60ad75;
+    --tema-light:#a2e7b2;
+    --tema-dark-rgb:25,60,41;
+    --tema-main-rgb:46,101,67;
+    --tema-soft-rgb:96,173,117;
+    --tema-rgb:162,231,178;
     --black:rgba(5,5,5,.88);
+}
+
+/* Estados de cor mantidos como fallback. O JS suaviza a troca em 2,5 s. */
+.overlay.tema-verde{
+    --tema-dark:#193c29;
+    --tema-main:#2e6543;
+    --tema-soft:#60ad75;
+    --tema-light:#a2e7b2;
+    --tema-dark-rgb:25,60,41;
+    --tema-main-rgb:46,101,67;
+    --tema-soft-rgb:96,173,117;
+    --tema-rgb:162,231,178;
+}
+.overlay.tema-amarelo{
+    --tema-dark:#433818;
+    --tema-main:#816921;
+    --tema-soft:#bf9d44;
+    --tema-light:#f1d17e;
+    --tema-dark-rgb:67,56,24;
+    --tema-main-rgb:129,105,33;
+    --tema-soft-rgb:191,157,68;
+    --tema-rgb:241,209,126;
+}
+.overlay.tema-laranja{
+    --tema-dark:#4c301b;
+    --tema-main:#955029;
+    --tema-soft:#ce7d41;
+    --tema-light:#f2b17e;
+    --tema-dark-rgb:76,48,27;
+    --tema-main-rgb:149,80,41;
+    --tema-soft-rgb:206,125,65;
+    --tema-rgb:242,177,126;
+}
+.overlay.tema-vermelho{
+    --tema-dark:#4d232a;
+    --tema-main:#953a45;
+    --tema-soft:#c96570;
+    --tema-light:#f3a0a7;
+    --tema-dark-rgb:77,35,42;
+    --tema-main-rgb:149,58,69;
+    --tema-soft-rgb:201,101,112;
+    --tema-rgb:243,160,167;
 }
 
 .overlay{
@@ -23,8 +67,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     transform-origin:center center;
     overflow:hidden;
     background:
-        radial-gradient(circle at top left,rgba(132,255,79,.12),transparent 30%),
-        radial-gradient(circle at bottom right,rgba(45,124,63,.18),transparent 34%),
+        radial-gradient(circle at top left,rgba(var(--tema-rgb),.12),transparent 30%),
+        radial-gradient(circle at bottom right,rgba(var(--tema-main-rgb),.18),transparent 34%),
         #050505;
 }
 
@@ -35,7 +79,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     right:24px;
     height:110px;
     background:var(--black);
-    border:2px solid rgba(132,255,79,.26);
+    border:2px solid rgba(var(--tema-rgb),.26);
     border-radius:28px;
     display:flex;
     align-items:center;
@@ -49,8 +93,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     height:90px;
     border-radius:22px;
     overflow:hidden;
-    background:linear-gradient(135deg,var(--green-dark),var(--green-main),var(--green-soft));
-    border:2px solid rgba(132,255,79,.38);
+    background:linear-gradient(135deg,var(--tema-dark),var(--tema-main),var(--tema-soft));
+    border:2px solid rgba(var(--tema-rgb),.38);
     display:flex;
     align-items:center;
     gap:16px;
@@ -58,7 +102,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
 }
 .logo-area img{height:86px;width:auto;object-fit:contain}
 .logo-text strong{font-size:32px;font-weight:900;color:#fff}
-.logo-text span{display:block;margin-top:7px;font-size:18px;font-weight:900;color:var(--green-light);letter-spacing:3px}
+.logo-text span{display:block;margin-top:7px;font-size:18px;font-weight:900;color:var(--tema-light);letter-spacing:3px}
 
 .clock-date-wrapper{
     height:62px;
@@ -67,10 +111,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     align-items:center;
     justify-content:center;
     border-radius:18px;
-    background:rgba(132,255,79,.08);
-    border:1px solid rgba(132,255,79,.25);
+    background:rgba(var(--tema-rgb),.08);
+    border:1px solid rgba(var(--tema-rgb),.25);
 }
-.date-box{font-size:34px;font-weight:900;color:var(--green-light)}
+.date-box{font-size:34px;font-weight:900;color:var(--tema-light)}
 
 .center-container{
     position:absolute;
@@ -87,7 +131,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     position:relative;
     border-radius:30px;
     overflow:hidden;
-    border:1px solid rgba(132,255,79,.18);
+    border:1px solid rgba(var(--tema-rgb),.18);
     background:#000;
 }
 
@@ -121,31 +165,35 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     align-items:center;
     justify-content:center;
     text-align:center;
-    color:var(--green-light);
+    color:var(--tema-light);
     font-size:30px;
     font-weight:900;
     padding:30px;
     background:#050505;
 }
 
-.slide-dots{
+.ad-counter{
     position:absolute;
-    left:50%;
+    right:18px;
     bottom:18px;
-    transform:translateX(-50%);
-    display:flex;
-    gap:10px;
     z-index:8;
+    padding:6px 10px;
+    border-radius:8px;
+    background:rgba(0,0,0,.45);
+    color:rgba(255,255,255,.75);
+    font-size:16px;
+    font-weight:400;
+    letter-spacing:.2px;
+    white-space:nowrap;
+    pointer-events:none;
 }
-.slide-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.35)}
-.slide-dot.active{background:var(--green-light);box-shadow:0 0 12px var(--green-light)}
 
 .side-panel{
     width:390px;
     min-width:390px;
     border-radius:30px;
     overflow:hidden;
-    border:2px solid rgba(95,200,75,.24);
+    border:2px solid rgba(var(--tema-soft-rgb),.24);
     background:var(--black);
     padding:18px;
     display:grid;
@@ -170,12 +218,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     justify-content:center;
     text-align:center;
     padding:16px;
-    border:1px solid rgba(132,255,79,.42);
+    border:1px solid rgba(var(--tema-rgb),.42);
     background:
-        radial-gradient(circle at center,rgba(132,255,79,.10),transparent 55%),
-        linear-gradient(135deg,rgba(32,78,47,.55),rgba(5,5,5,.72));
-    box-shadow:inset 0 0 28px rgba(132,255,79,.10);
-    transition:background .4s ease,border-color .4s ease,box-shadow .4s ease;
+        radial-gradient(circle at center,rgba(var(--tema-rgb),.10),transparent 55%),
+        linear-gradient(135deg,rgba(var(--tema-dark-rgb),.55),rgba(5,5,5,.72));
+    box-shadow:inset 0 0 28px rgba(var(--tema-rgb),.10);
 }
 .panel-box::before{
     content:"";
@@ -184,67 +231,72 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     left:0;
     width:100%;
     height:1px;
-    background:var(--green-light);
-    box-shadow:0 0 14px rgba(132,255,79,.85);
-    transition:background .4s ease,box-shadow .4s ease;
+    background:var(--tema-light);
+    box-shadow:0 0 14px rgba(var(--tema-rgb),.85);
 }
 
-.panel-box.alerta{
-    background:radial-gradient(circle at center,rgba(255,208,0,.16),transparent 55%),linear-gradient(135deg,rgba(80,65,0,.65),rgba(5,5,5,.78));
-    border-color:var(--yellow);
-    box-shadow:inset 0 0 32px rgba(255,208,0,.16);
+/* Os quatro estados utilizam a mesma moldura: só a paleta muda. */
+.panel-box.alerta,.panel-box.urgente,.panel-box.critico,.panel-box.fechado{
+    border-color:rgba(var(--tema-rgb),.55);
+    box-shadow:inset 0 0 30px rgba(var(--tema-rgb),.13);
 }
-.panel-box.alerta::before{background:var(--yellow);box-shadow:0 0 16px rgba(255,208,0,.9)}
-
-.panel-box.urgente{
-    background:radial-gradient(circle at center,rgba(255,140,0,.18),transparent 55%),linear-gradient(135deg,rgba(90,45,0,.68),rgba(5,5,5,.80));
-    border-color:var(--orange);
-    box-shadow:inset 0 0 34px rgba(255,140,0,.18);
-}
-.panel-box.urgente::before{background:var(--orange);box-shadow:0 0 16px rgba(255,140,0,.95)}
-
-.panel-box.critico,.panel-box.fechado{
-    background:radial-gradient(circle at center,rgba(255,77,77,.18),transparent 55%),linear-gradient(135deg,rgba(85,0,0,.68),rgba(5,5,5,.82));
-    border-color:var(--red);
-    box-shadow:inset 0 0 36px rgba(255,77,77,.20);
-}
-.panel-box.critico::before,.panel-box.fechado::before{background:var(--red);box-shadow:0 0 18px rgba(255,77,77,.95)}
 
 .status-line{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:9px}
 .status-dot{
     width:16px;
     height:16px;
     border-radius:50%;
-    background:var(--green-light);
-    box-shadow:0 0 16px var(--green-light);
+    background:var(--tema-light);
+    box-shadow:0 0 16px var(--tema-light);
     animation:pulseDot 1.6s infinite;
 }
-.status-dot.alerta{background:var(--yellow);box-shadow:0 0 16px var(--yellow)}
-.status-dot.urgente{background:var(--orange);box-shadow:0 0 16px var(--orange)}
-.status-dot.closed{background:var(--red);box-shadow:0 0 16px var(--red)}
+.status-dot.alerta{background:var(--tema-light);box-shadow:0 0 16px var(--tema-light)}
+.status-dot.urgente{background:var(--tema-light);box-shadow:0 0 16px var(--tema-light)}
+.status-dot.closed{background:var(--tema-light);box-shadow:0 0 16px var(--tema-light)}
 
 @keyframes pulseDot{
     0%,100%{transform:scale(1);opacity:1}
     50%{transform:scale(1.25);opacity:.75}
 }
 
-.panel-title{color:var(--green-light);font-size:24px;font-weight:900}
-.panel-title.yellow{color:var(--yellow)}
-.panel-title.orange{color:var(--orange)}
-.panel-title.red{color:var(--red)}
+.panel-title{color:var(--tema-light);font-size:24px;font-weight:900}
+.panel-title.yellow{color:var(--tema-light)}
+.panel-title.orange{color:var(--tema-light)}
+.panel-title.red{color:var(--tema-light)}
 
-.info-label{color:#fff;font-size:16px;font-weight:900;margin-bottom:5px;text-shadow:0 0 8px rgba(132,255,79,.45)}
+.info-label{color:#fff;font-size:16px;font-weight:900;margin-bottom:5px;text-shadow:0 0 8px rgba(var(--tema-rgb),.45)}
 .func-dia{color:#fff;font-size:26px;font-weight:900;margin-bottom:8px}
-.func-horario{color:var(--green-soft);font-size:28px;font-weight:900;margin-bottom:12px}
-.count-label{color:var(--green-light);font-size:19px;font-weight:900;margin-bottom:6px}
+.func-horario{color:var(--tema-soft);font-size:28px;font-weight:900;margin-bottom:12px}
+.count-label{color:var(--tema-light);font-size:19px;font-weight:900;margin-bottom:6px}
 .countdown{color:#fff;font-size:48px;font-weight:900;letter-spacing:2px;line-height:1}
-.status-fechado{color:var(--red);font-size:44px;font-weight:900;line-height:1}
+.status-fechado{color:var(--tema-light);font-size:44px;font-weight:900;line-height:1}
+
+/* Durante o fechamento, mostra o dia e o horário da próxima abertura.
+   O espaço é o mesmo do contador regressivo, sem aumentar o painel. */
+.proxima-abertura-dia{
+    color:#fff;
+    font-size:31px;
+    font-weight:900;
+    line-height:1.12;
+    letter-spacing:.15px;
+    text-align:center;
+    white-space:nowrap;
+}
+.proxima-abertura-hora{
+    color:var(--tema-light);
+    font-size:34px;
+    font-weight:900;
+    line-height:1.1;
+    margin-top:7px;
+    text-shadow:0 0 12px rgba(var(--tema-rgb),.27);
+}
+.proxima-abertura-hora[hidden]{display:none}
 
 .mini-labels{
     display:flex;
     gap:19px;
     justify-content:center;
-    color:var(--green-light);
+    color:var(--tema-light);
     font-size:12px;
     font-weight:900;
     margin-top:6px;
@@ -258,29 +310,24 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     line-height:1;
     letter-spacing:1px;
 }
-.gym-signature span{color:var(--green-light);font-size:15px;letter-spacing:3px}
+.gym-signature span{color:var(--tema-light);font-size:15px;letter-spacing:3px}
 
-.panel-box.alerta .count-label,
-.panel-box.alerta .func-horario,
-.panel-box.alerta .mini-labels,
-.panel-box.alerta .gym-signature span{color:var(--yellow)}
-
-.panel-box.urgente .count-label,
-.panel-box.urgente .func-horario,
-.panel-box.urgente .mini-labels,
-.panel-box.urgente .gym-signature span{color:var(--orange)}
-
-.panel-box.critico .count-label,
-.panel-box.critico .func-horario,
+/* Destaques também recebem a transição gradual da paleta. */
+.panel-box.alerta .count-label,.panel-box.urgente .count-label,
+.panel-box.critico .count-label,.panel-box.fechado .count-label,
+.panel-box.alerta .mini-labels,.panel-box.urgente .mini-labels,
 .panel-box.critico .mini-labels,
-.panel-box.critico .gym-signature span,
-.panel-box.fechado .count-label,
-.panel-box.fechado .func-horario,
-.panel-box.fechado .gym-signature span{color:var(--red)}
-
-.panel-box.alerta .countdown{color:#fff3a0;text-shadow:0 0 12px rgba(255,208,0,.45)}
-.panel-box.urgente .countdown{color:#ffd2a0;text-shadow:0 0 12px rgba(255,140,0,.45)}
-.panel-box.critico .countdown,.panel-box.fechado .status-fechado{color:var(--red);text-shadow:0 0 14px rgba(255,77,77,.55)}
+.panel-box.alerta .gym-signature span,.panel-box.urgente .gym-signature span,
+.panel-box.critico .gym-signature span,.panel-box.fechado .gym-signature span{
+    color:var(--tema-light);
+}
+.panel-box.alerta .func-horario,.panel-box.urgente .func-horario,
+.panel-box.critico .func-horario,.panel-box.fechado .func-horario{
+    color:var(--tema-soft);
+}
+.panel-box.alerta .countdown,.panel-box.urgente .countdown,
+.panel-box.critico .countdown{color:#fff;text-shadow:0 0 12px rgba(var(--tema-rgb),.30)}
+.panel-box.fechado .status-fechado{color:var(--tema-light);text-shadow:0 0 13px rgba(var(--tema-rgb),.35)}
 
 .temporario-box{
     grid-row:1;
@@ -289,7 +336,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     align-items:center;
     justify-content:center;
     background:#000;
-    border:1px solid rgba(132,255,79,.25);
+    border:1px solid rgba(var(--tema-rgb),.25);
 }
 
 .painel-slide-box{
@@ -297,7 +344,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     grid-column:1;
     position:relative;
     background:#000;
-    border:1px solid rgba(132,255,79,.25);
+    border:1px solid rgba(var(--tema-rgb),.25);
 }
 
 .bottom-overlay{
@@ -308,7 +355,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     height:66px;
     border-radius:22px;
     background:var(--black);
-    border:2px solid rgba(132,255,79,.24);
+    border:2px solid rgba(var(--tema-rgb),.24);
     display:flex;
     align-items:center;
     overflow:hidden;
@@ -322,10 +369,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     left:0;
     width:100%;
     height:4px;
-    background:linear-gradient(90deg,var(--green-light),var(--green-soft),var(--green-main));
+    background:linear-gradient(90deg,var(--tema-light),var(--tema-soft),var(--tema-main));
 }
 .ticker-label{
-    color:var(--green-light);
+    color:var(--tema-light);
     font-size:27px;
     font-weight:900;
     margin-right:28px;
@@ -349,3 +396,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     from{transform:translateX(0)}
     to{transform:translateX(-100%)}
 }
+
+/* Transição de cores feita com requestAnimationFrame no JS (2,5 segundos).
+   Isso também suaviza gradientes, bordas e brilhos, inclusive em navegadores
+   que não animam variáveis CSS personalizadas. Imagens/vídeos intactos. */
