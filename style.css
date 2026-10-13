@@ -158,6 +158,30 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050505}
     display:block;
 }
 
+/* Fundo adaptativo dos anúncios centrais: aparece só onde a imagem não preenche
+   a área. O anúncio nítido fica por cima, SEM CORTES; lateral e vídeos intactos. */
+.ad-slide.com-fundo-desfocado{
+    overflow:hidden;
+    isolation:isolate;
+}
+.ad-slide.com-fundo-desfocado.active::before{
+    content:"";
+    position:absolute;
+    inset:-36px; /* sobra para que o desfoque não revele bordas */
+    z-index:0;
+    pointer-events:none;
+    background-image:var(--fundo-imagem-anuncio);
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    filter:blur(30px) brightness(.62) saturate(.88);
+}
+.ad-slide.com-fundo-desfocado > img{
+    position:relative;
+    z-index:1;
+    background:transparent; /* libera o fundo nas sobras do object-fit:contain */
+}
+
 .media-error{
     position:absolute;
     inset:0;
