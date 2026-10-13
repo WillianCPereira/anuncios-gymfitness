@@ -586,6 +586,33 @@ function criarMidia(arquivo,pasta,index){
     return `<img src="${pasta}${arquivo}" alt="Mídia ${index}" onerror="mostrarErroMidia(this,'ARQUIVO ${index}')">`;
 }
 
+// Preenche apenas as faixas vazias dos anúncios centrais com uma cópia desfocada.
+// Não edita a imagem original, não corta textos ou preços e não afeta os vídeos.
+function prepararFundoDesfocadoAnuncio(slide){
+    const imagem = slide.querySelector("img");
+    if(!imagem) return;
+
+    function avaliarProporcao(){
+        if(!imagem.naturalWidth || !imagem.naturalHeight) return;
+        const largura = slide.clientWidth;
+        const altura = slide.clientHeight;
+        if(!largura || !altura) return;
+
+        const proporcaoImagem = imagem.naturalWidth / imagem.naturalHeight;
+        const proporcaoArea = largura / altura;
+        // Diferenças pequenas (ex.: banners 16:9) ficam exatamente como antes.
+        if(Math.abs(proporcaoImagem / proporcaoArea - 1) <= 0.10) return;
+
+        const url = imagem.currentSrc || imagem.src;
+        slide.style.setProperty("--fundo-imagem-anuncio", `url(${JSON.stringify(url)})`);
+        slide.classList.add("com-fundo-desfocado");
+    }
+
+    imagem.addEventListener("load",avaliarProporcao,{once:true});
+    // Também funciona quando a imagem já estava armazenada no cache.
+    if(imagem.complete && imagem.naturalWidth > 0) avaliarProporcao();
+}
+
 function mostrarErroMidia(elemento,titulo){
     const slide = elemento.closest(".ad-slide,.painel-slide,.temporario-box");
     if(!slide) return;
@@ -610,6 +637,8 @@ function criarSlides(containerId,classe,pasta,lista,usarContador=false){
         }else{
             container.appendChild(slide);
         }
+        // Somente anúncios centrais: mantém os criativos laterais originais.
+        if(usarContador) prepararFundoDesfocadoAnuncio(slide);
     });
 }
 
