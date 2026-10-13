@@ -8,8 +8,8 @@ const CONFIG = {
     anuncios:[     
         "cordaogym.jpeg",
         "meiacolorida.jpeg",
-        "meiokappa.jpeg",
-        "gohanroxooversized.jpeg",
+        "meiakappa.jpeg",
+        "oversizedgohanroxo.jpeg",
         "3camisasdetime.jpeg",
         "oversizedsaiyagym.jpeg",
         "losangeles86branca.jpeg",
