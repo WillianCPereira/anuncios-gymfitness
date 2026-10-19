@@ -221,7 +221,7 @@ const CONFIG = {
         ativo:true,
         arquivo:"aniversáriojoaosilva.jpeg",
         inicio:"2026-10-19T11:34:00",
-        duracaoHoras:32,
+        duracaoHoras:24,
         tempoNaTela:12000
     },
 
