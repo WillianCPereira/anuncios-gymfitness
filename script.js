@@ -220,7 +220,7 @@ const CONFIG = {
     temporario:{
         ativo:true,
         arquivo:"aniversáriojoaosilva.jpeg",
-        inicio:"2026-10-19T08:00:00",
+        inicio:"2026-10-19T10:53:00",
         duracaoHoras:24,
         tempoNaTela:12000
     },
