@@ -194,7 +194,7 @@ const CONFIG = {
         "meiascanomedio.jpeg",
         "meiaspilates.jpeg",
         "meisacanomedio.jpeg",
-        "proteinbar.jpeg"
+        "proteinbar.jpeg",
         
     ],
 
