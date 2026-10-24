@@ -111,14 +111,14 @@ const CONFIG = {
         "horariosfuncionamentos.jpeg",
         "camiseta12990.jpeg",
         "barracrisp.jpeg",
-        "comunicadoreajuste.jpeg",
-        "alça2990.jpeg"
+        "comunicadoreajuste.jpeg"
     ],
 
 
     // MODIFIQUE AQUI! Painel lateral: imagens ou vídeos
     painel:[
         "lateral2.png",
+        "alça2990.jpeg",
         "creatina8490.jpeg",
         "aulapassinhos.jpeg",
         "lateral8.png",
