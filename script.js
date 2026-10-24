@@ -203,7 +203,7 @@ const CONFIG = {
     // (11/05, 14/11 e Corpus Christi), Sexta-feira Santa e estaduais abaixo.
     // Datas estaduais da Lei 20.756/2020 referem-se ao expediente dos órgãos
     // estaduais; deixar true apenas se a academia TAMBÉM adotar 08h às 14h nelas.
-    considerarFeriadosEstaduais:true,
+    considerarFeriadosEstaduais:false,
 
     // Feriados adicionais ou folgas decididas pela academia, nunca automáticos.
     // "AAAA-MM-DD": somente naquele ano; "MM-DD": todos os anos.
@@ -352,7 +352,7 @@ function horarioAcademia(dia,dataISO=obterDataAcademia()){
     }
 
     if(dia === 6){
-        return {abre:7,fecha:17,texto:"07h às 17h",feriado:false};
+        return {abre:8,fecha:17,texto:"08h às 17h",feriado:false};
     }
 
     return {abre:8,fecha:14,texto:"08h às 14h",feriado:false};
