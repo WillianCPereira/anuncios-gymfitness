@@ -104,7 +104,6 @@ const CONFIG = {
         "camisapalmeiras.jpeg",
         "topcar.jpeg",
         "Myriele.jpeg",
-        "drmatheusmediciaesportiva.jpeg",
         "sensewhaeybar.jpeg",
         "proteincrisp.jpeg",
         "naogotodefazerexercicios.jpeg",
