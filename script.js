@@ -9,7 +9,7 @@ const CONFIG = {
         "cordaogym.jpeg",
         "marycake.jpeg",
         "massoterapia.jpeg",
-        "autoescolasd.jpeg";
+        "autoescolasd.jpeg",
         "medicinaesportiva.jpeg",
         "meiacolorida.jpeg",
         "meiakappa.jpeg",
