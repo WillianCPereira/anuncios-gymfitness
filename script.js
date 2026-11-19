@@ -7,6 +7,7 @@ const CONFIG = {
     // MODIFIQUE AQUI! Anúncios centrais: imagens ou vídeos
     anuncios:[     
         "cordaogym.jpeg",
+        "motopecassinai.jpeg",
         "marycake.jpeg",
         "massoterapia.jpeg",
         "autoescolasd.jpeg",
